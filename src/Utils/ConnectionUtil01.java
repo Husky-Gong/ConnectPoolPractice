@@ -14,11 +14,11 @@ import java.util.Map;
 
 public class ConnectionUtil01 {
 	//1. get Net Information
-	private static void setConnection() {
+	@SuppressWarnings("unused")
+	private static Connection setConnection() {
 		Map<String,String> sqlInfoMap = XMLReaderUtil.getSQLInfo();
 		String userName = sqlInfoMap.get("userName");
 		String passWord = sqlInfoMap.get("passWord");
-		int port = Integer.parseInt(sqlInfoMap.get("port"));
 		String url = sqlInfoMap.get("url");
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -28,5 +28,10 @@ public class ConnectionUtil01 {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		return conn;
+	}
+	
+	public static Connection getConn() {
+		return setConnection();
 	}
 }

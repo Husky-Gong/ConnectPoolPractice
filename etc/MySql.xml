@@ -3,6 +3,5 @@
 	<sql key="find course by cno" value="select cno,cname,tno from course where cno=?"/>
 	<info key="userName" value="root"/>
 	<info key="passWord" value="Zz010013"/>
-	<info key="port" value="3306"/>
 	<info key="url" value="jdbc:mysql://localhost:3306/practice01?useUnicode=true&amp;useSSL=false&amp;charsetEncoding=utf8"/>
 </sqls>
