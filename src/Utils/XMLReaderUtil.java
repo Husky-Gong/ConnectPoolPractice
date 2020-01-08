@@ -62,7 +62,7 @@ public class XMLReaderUtil {
 		return sqlMap.get(methodName);
 	}
 	
-	public static String getSQLInfo(String key) {
-		return sqlInfoMap.get(key);
+	public static Map<String,String> getSQLInfo() {
+		return sqlInfoMap;
 	}
 }

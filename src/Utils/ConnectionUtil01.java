@@ -1,4 +1,10 @@
 package Utils;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.util.Map;
+
 /*
  * This class is designated to read properties from a XML file 
  * and set the connection
@@ -7,5 +13,20 @@ package Utils;
  */
 
 public class ConnectionUtil01 {
-	
+	//1. get Net Information
+	private static void setConnection() {
+		Map<String,String> sqlInfoMap = XMLReaderUtil.getSQLInfo();
+		String userName = sqlInfoMap.get("userName");
+		String passWord = sqlInfoMap.get("passWord");
+		int port = Integer.parseInt(sqlInfoMap.get("port"));
+		String url = sqlInfoMap.get("url");
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection(url,userName,passWord);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
